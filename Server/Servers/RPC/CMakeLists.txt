@@ -1,0 +1,8 @@
+﻿target_sources(
+	CatalogServer PRIVATE 
+	${CMAKE_CURRENT_SOURCE_DIR}/RPCCoins.h ${CMAKE_CURRENT_SOURCE_DIR}/RPCCoins.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/RPCCollections.h ${CMAKE_CURRENT_SOURCE_DIR}/RPCCollections.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/RPCCountries.h ${CMAKE_CURRENT_SOURCE_DIR}/RPCCountries.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/RPCServer.h ${CMAKE_CURRENT_SOURCE_DIR}/RPCServer.cpp
+)
+target_include_directories(CatalogServer PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

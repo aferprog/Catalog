@@ -1,0 +1,26 @@
+Mintmark,Mintage,Year,Country,Collection,Name,IsMagnetic,Weight,Diameter,Thickness,Condition,Shape,Price,PriceOfPurchase,Material
+P,10000,2000,USA,USA commemorative silver dollar,Statue of Liberty,false,80.72998,38.09999,2.70000,MS-63,Round,50.0,45.0,Silver
+S,20000,1986,USA,USA commemorative silver dollar,Liberty,true,26.72999,38.09999,2.70000,AU-50,Round,30.0,25.0,Silver
+D,15000,1992,USA,USA commemorative silver dollar,Columbus,false,29.72999,38.09999,2.70000,PF-63,Round,40.0,35.0,Silver
+W,12000,2021,USA,USA commemorative silver dollar,Apollo 11,false,2.72999,38.09999,2.70000,MS-63,Round,60.0,55.0,Silver
+P,5000,2015,Canada,Canada Wildlife Series,Grizzly Bear,false,31.110,38.000,2.800,MS-64,Round,70.0,65.0,Silver
+D,20000,2010,Australia,Australian Lunar Series,Year of the Tiger,true,31.135,40.000,2.700,MS-70,Round,90.0,80.0,Silver
+S,5000,2020,United Kingdom,Britannia,Britannia,false,31.103,38.610,2.800,PR-69,Round,85.0,75.0,Silver
+W,15000,2005,USA,American Eagle Gold Coin,American Eagle Gold,false,33.930,32.700,2.700,MS-70,Round,1800.0,1700.0,Gold
+P,10000,2016,Canada,Maple Leaf,Canadian Maple Leaf,false,31.103,38.000,2.800,MS-65,Round,60.0,55.0,Silver
+W,25000,1995,USA,American Silver Eagle,Silver Eagle,false,31.103,40.600,2.400,MS-69,Round,70.0,60.0,Silver
+S,10000,2001,South Africa,Krugerrand,Krugerrand,false,33.930,32.700,2.800,MS-63,Round,1200.0,1100.0,Gold
+D,15000,2013,Mexico,Mexican Libertad,Libertad Gold Coin,false,31.100,37.000,2.700,MS-70,Round,1500.0,1400.0,Gold
+P,12000,2018,USA,American Eagle Platinum Coin,Eagle Platinum,false,31.103,32.700,2.700,MS-69,Round,1500.0,1450.0,Platinum
+S,8000,2023,Russia,Russian Coins,Saint George and the Dragon,false,31.100,38.600,2.500,PR-68,Round,90.0,80.0,Silver
+D,7000,2010,China,Lunar Series,Year of the Tiger,true,31.100,40.000,2.700,PR-70,Round,95.0,85.0,Silver
+W,5000,2022,USA,America the Beautiful,Yosemite National Park,false,26.730,38.100,2.400,MS-69,Round,65.0,60.0,Silver
+P,15000,2017,Australia,Australian Lunar Series,Year of the Rooster,true,31.135,40.000,2.700,MS-70,Round,85.0,75.0,Silver
+D,20000,1999,USA,USA Commemorative Silver Dollar,Flower of the Americas,false,31.103,38.100,2.700,MS-65,Round,60.0,50.0,Silver
+W,12000,2010,Canada,Royal Canadian Mint Series,Polar Bear,false,31.103,38.000,2.800,MS-64,Round,75.0,70.0,Silver
+S,25000,2003,UK,The Queen's Beasts Series,Lion of England,false,31.103,38.600,2.800,MS-69,Round,80.0,70.0,Silver
+D,7000,2024,USA,Native American Series,Sacagawea Dollar,false,26.730,28.000,2.500,PR-68,Round,65.0,55.0,Gold
+W,10000,2020,China,Panda Series,2020 Gold Panda,true,31.103,40.000,2.800,MS-70,Round,3000.0,2900.0,Gold
+P,15000,2012,Canada,Wildlife Series,Cougar,false,31.100,38.000,2.700,MS-65,Round,70.0,60.0,Silver
+D,10000,2018,Australia,Australian Lunar Series,Year of the Dog,true,31.135,40.000,2.700,MS-70,Round,90.0,85.0,Silver
+W,15000,2019,USA,American Eagle Silver Coin,American Eagle,false,31.103,40.000,2.400,MS-69,Round,80.0,70.0,Silver
