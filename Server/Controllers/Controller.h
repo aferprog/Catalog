@@ -12,7 +12,7 @@ public:
 	bool addCollection(size_t userId, std::string_view collectioName)override;
 	bool registration(const std::string& username, const std::string& password)override;
 	size_t logIn(const std::string& username, const std::string& password)override;
-	std::vector<CoinPtr> search(size_t userId, CoreCollection collection) override;
+	std::vector<CoreCoin> search(size_t userId, CoreCollection collection) override;
 	bool toggleMark(size_t userId,size_t id)override;
 	int increment(size_t userId,size_t id)override;
 	int decrement(size_t userId,size_t id)override;

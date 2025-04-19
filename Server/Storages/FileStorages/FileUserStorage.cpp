@@ -36,10 +36,10 @@ User FileUserStorage::getUserData(User target)
 
 size_t FileUserStorage::addUser(const std::string& username, const std::string& password)
 {
-    /*std::vector<CoinPtr> coins=getAllCoins();
-    for (CoinPtr& coin : additionalCoins) {
-        coin->id = getNextId();
-        setNextId(coin->id+1);
+    /*std::vector<Coin> coins=getAllCoins();
+    for (Coin& coin : additionalCoins) {
+        coin.id = getNextId();
+        setNextId(coin.id+1);
         coins.push_back(coin);
     }
     writeCoins(coins);

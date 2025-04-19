@@ -7,7 +7,7 @@ class CSVCoinStorage:public FileCoinStorage
 public:
 	CSVCoinStorage(std::string path);
 protected:
-	std::vector<CoinPtr> getAllCoins()const override;
-	size_t writeCoins(std::vector<CoinPtr>& coins) override;
+	std::vector<Coin> getAllCoins()const override;
+	size_t writeCoins(std::vector<Coin>& coins) override;
 };
 

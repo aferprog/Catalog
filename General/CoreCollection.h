@@ -1,9 +1,12 @@
 #pragma once
 #include<iostream>
+#include <rpc/msgpack.hpp>
 class CoreCollection {
+protected:
     std::string name = "";
     int countOfCoins = 0;
 public:
+    MSGPACK_DEFINE(countOfCoins, name);
     inline std::string getName() const {
         return name;
     }

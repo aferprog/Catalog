@@ -9,21 +9,21 @@ FileCoinStorage::FileCoinStorage(std::string_view path)
     filePath = path;
 }
 
-CoinPtr FileCoinStorage::getCoinById(size_t id) const
+Coin FileCoinStorage::getCoinById(size_t id) const
 {
-    std::vector<CoinPtr> coins = getAllCoins();
-    for (CoinPtr coin : coins)
-        if (coin->id == id)
+    std::vector<Coin> coins = getAllCoins();
+    for (Coin coin : coins)
+        if (coin.id == id)
             return coin;
     return {};
 }
 
-CoinPtr FileCoinStorage::saveCoin(CoinPtr coin)
+Coin FileCoinStorage::saveCoin(Coin coin)
 {
-    std::vector<CoinPtr> coins = getAllCoins();
-    CoinPtr res;
-    for (CoinPtr& curr : coins) {
-        if (curr->id == coin->id) 
+    std::vector<Coin> coins = getAllCoins();
+    Coin res;
+    for (Coin& curr : coins) {
+        if (curr.id == coin.id) 
         {
             res = curr;
             curr = coin;
@@ -34,25 +34,25 @@ CoinPtr FileCoinStorage::saveCoin(CoinPtr coin)
     return res;
 }
 
-std::vector<CoinPtr> FileCoinStorage::getCoins(const Coin& filter) const
+std::vector<Coin> FileCoinStorage::getCoins(const Coin& filter) const
 {
-    std::vector<CoinPtr> coins = getAllCoins();
-    std::vector<CoinPtr> res;
-    for (CoinPtr& coin : coins) {
-        bool checkCountry = filter.country.empty() ? true : filter.country == coin->country;
-        bool checkCollection = filter.collection.empty() ? true : filter.collection == coin->collection;
+    std::vector<Coin> coins = getAllCoins();
+    std::vector<Coin> res;
+    for (Coin& coin : coins) {
+        bool checkCountry = filter.country.empty() ? true : filter.country == coin.country;
+        bool checkCollection = filter.collection.empty() ? true : filter.collection == coin.collection;
         if (checkCountry && checkCollection)
             res.push_back(coin);
     }
     return res;
 }
 
-int FileCoinStorage::importCoins(std::vector<CoinPtr> additionalCoins)
+int FileCoinStorage::importCoins(std::vector<Coin> additionalCoins)
 {
-    std::vector<CoinPtr> coins=getAllCoins();
-    for (CoinPtr& coin : additionalCoins) {
-        coin->id = getNextId();
-        setNextId(coin->id+1);
+    std::vector<Coin> coins=getAllCoins();
+    for (Coin& coin : additionalCoins) {
+        coin.id = getNextId();
+        setNextId(coin.id+1);
         coins.push_back(coin);
     }
     writeCoins(coins);
@@ -61,10 +61,10 @@ int FileCoinStorage::importCoins(std::vector<CoinPtr> additionalCoins)
 
 std::vector<std::string> FileCoinStorage::getCountries() const
 {
-    std::vector<CoinPtr> coins = getAllCoins();
+    std::vector<Coin> coins = getAllCoins();
     std::set<std::string> countries;
-    for (CoinPtr& coin : coins)
-        countries.insert(coin->country);
+    for (Coin& coin : coins)
+        countries.insert(coin.country);
     std::vector<std::string>res;
     res.reserve(countries.size());
     for (const std::string& country : countries)
@@ -74,11 +74,11 @@ std::vector<std::string> FileCoinStorage::getCountries() const
 
 std::vector<Collection> FileCoinStorage::getCollections(std::string_view country) const
 {
-    std::vector<CoinPtr> coins = getAllCoins();
+    std::vector<Coin> coins = getAllCoins();
     std::map<std::string,int> collections;
-    for (CoinPtr& coin : coins)
-        if(coin->country==country)
-          collections[coin->collection]++;
+    for (Coin& coin : coins)
+        if(coin.country==country)
+          collections[coin.collection]++;
     std::vector<Collection>res;
     res.reserve(collections.size());
     for (const auto& collection : collections) {

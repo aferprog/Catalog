@@ -17,8 +17,8 @@ bool CSVUserStorage::writeUsers(std::vector<User> users)
     file << std::setprecision(2);
     file << "Id,Mintmark,Mintage,Year,Country,Collection,Name,IsMagnetic,Weight,Diameter,Thickness,Condition,Quantity,Shape,Price,PriceOfPurchase,Material,IsFavorite\n";
     auto writer = csv::make_csv_writer(file);
-    for (const CoinPtr& coin : coins) {
-        writer<<coin->getAllFieldsAsTuple();
+    for (const Coin& coin : coins) {
+        writer<<coin.getAllFieldsAsTuple();
     }                 
     file.close();
     return coins.size();*/

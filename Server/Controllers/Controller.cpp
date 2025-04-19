@@ -23,33 +23,38 @@ size_t Controller::logIn(const std::string& username, const std::string& passwor
 	return user.id;
 }
 
-std::vector<CoinPtr> Controller::search(size_t userId, CoreCollection collection)
+std::vector<CoreCoin> Controller::search(size_t userId, CoreCollection collection)
 {
 	Coin a;
 	a.collection = collection.getName();
-	return coinStorage->getCoins(a);
+	std::vector<Coin> coins = coinStorage->getCoins(a);
+	std::vector<CoreCoin> result(0);
+	result.reserve(coins.size());
+	for (Coin& coin : coins)
+		result.push_back(coin);
+	return result;
 }
 
 bool Controller::toggleMark(size_t userId,size_t id)
 {
-	CoinPtr coin = coinStorage->getCoinById(id);
-	coin->IsFavorite=!coin->IsFavorite;
+	Coin coin = coinStorage->getCoinById(id);
+	coin.IsFavorite=!coin.IsFavorite;
 	coinStorage->saveCoin(coin);
-	return coin->IsFavorite;
+	return coin.IsFavorite;
 }
 int Controller::increment(size_t userId,size_t id)
 {
-	CoinPtr coin = coinStorage->getCoinById(id);
-	coin->quantity++;
+	Coin coin = coinStorage->getCoinById(id);
+	coin.quantity++;
 	coinStorage->saveCoin(coin);
-	return coin->quantity;
+	return coin.quantity;
 }
 int Controller::decrement(size_t userId,size_t id)
 {
-	CoinPtr coin = coinStorage->getCoinById(id);
-	coin->quantity--;
+	Coin coin = coinStorage->getCoinById(id);
+	coin.quantity--;
 	coinStorage->saveCoin(coin);
-	return coin->quantity;
+	return coin.quantity;
 }
 std::vector<std::string> Controller::getAllCountries(size_t userId)
 {
@@ -57,7 +62,13 @@ std::vector<std::string> Controller::getAllCountries(size_t userId)
 }
 std::vector<CoreCollection> Controller::getCollections(size_t userId,std::string_view country)
 {
-	return coinStorage->getCollections(country);
+	std::vector<Collection> collections = coinStorage->getCollections(country);
+	std::vector<CoreCollection> result(0);
+	result.reserve(collections.size());
+	for (const Collection& collection: collections)
+		result.push_back(std::move(collection));
+
+	return result;
 
 }
 Controller::Controller()

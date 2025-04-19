@@ -2,10 +2,13 @@
 #include<memory>
 #include<unordered_map>
 #include<iostream>
+#include <rpc/msgpack.hpp>
 
 class CoreCoin
 {
 public:
+	MSGPACK_DEFINE(id, mintmark, mintage, year, country, collection, name, IsMagnetic, weight, diameter, thickness, condition, quantity, shape, price, priceOfPurchase, material, IsFavorite);
+
 	size_t id;
 	std::string mintmark = "";
 	int mintage = -1;
