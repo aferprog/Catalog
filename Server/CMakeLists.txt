@@ -12,7 +12,7 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 project ("Catalog")
 
-
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
 # Add source to this project's executable.
 add_executable (CatalogServer "main.cpp")
 

@@ -6,9 +6,9 @@ Modules CollectionModule::activate(std::any& context)
 		country = std::any_cast<std::string>(context);
 		context.reset();
 	}
-	std::vector<Collection> collections=controller->getCollections(country);
+	std::vector<CoreCollection> collections=controller->getCollections(1, country);
 	int i = 0;
-	for (const Collection& a : collections) {
+	for (const CoreCollection& a : collections) {
 		std::cout << ++i << " " << a.getName()<<" "<< a.getCountOfCoins() << "\n";
 	}
 	printf("chosse the number of the collection or enter 0 to exit, enter -1 to go back to countries: ");

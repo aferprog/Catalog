@@ -12,19 +12,23 @@ int Controller::increment(size_t userId, size_t id) {
 int Controller::decrement(size_t userId, size_t id) {
 	return client->call("decrement", id).as<int>();
 }
-std::vector<Collection> Controller::getCollections(size_t userId, std::string_view country) {
-	return client->call("getCollections", country.data()).as<std::vector<Collection>>();
+std::vector<CoreCollection> Controller::getCollections(size_t userId, std::string_view country) {
+	return client->call("getCollections", country.data()).as<std::vector<CoreCollection>>();
 }
-std::vector<CoinPtr> Controller::coinsToPointer(const std::vector<Coin> &a){
-	std::vector<CoinPtr> res(a.size());
-	for (size_t i = 0; i < a.size(); ++i) {
-		res[i]=std::make_shared<Coin>(a[i]);
-	}
-	return res;
+bool Controller::addCollection(size_t userId, std::string_view collectionName)
+{
+	return true; // return client->call("addCollection", userId, collectionName.data()).as<bool>();
 }
-std::vector<CoinPtr> Controller::search(size_t userId, Collection collection) {
-	auto coins= client->call("search", collection).as<std::vector<Coin>>();
-	return coinsToPointer(coins);
+bool Controller::registration(const std::string& username, const std::string& password)
+{
+	return true; //return client->call("registration", username, password).as<bool>();
+}
+size_t Controller::logIn(const std::string& username, const std::string& password)
+{
+	return 1; //return client->call("logIn", username, password).as<size_t>();
+}
+std::vector<CoreCoin> Controller::search(size_t userId, CoreCollection collection) {
+	return client->call("search", collection).as<std::vector<CoreCoin>>();
 }
 bool Controller::toggleMark(size_t userId, size_t id) {
 	return client->call("toggleMark", id).as<bool>();

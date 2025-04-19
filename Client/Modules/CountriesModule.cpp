@@ -2,7 +2,7 @@
 
 Modules CountriesModule::activate(std::any& context)
 {
-    auto countries=controller->getAllCountries();
+    std::vector<std::string> countries=controller->getAllCountries(1);
     int i = 1;
     for (const std::string& a : countries) {
         std::cout << i++ <<" " << a << "\n";

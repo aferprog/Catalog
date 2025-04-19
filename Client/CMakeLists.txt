@@ -12,15 +12,17 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 project ("Catalog")
 
-
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
 # Add source to this project's executable.
 add_executable (CatalogClient "main.cpp"
 	Application.h Application.cpp
-	"Controllers/Controller.h" "Controllers/Controller.cpp"
 )
 
 add_subdirectory("../General" "${CMAKE_BINARY_DIR}/General")
 add_subdirectory(Modules)
+add_subdirectory(Controllers)
+
+target_include_directories(CatalogClient PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(CatalogClient PRIVATE GeneralLib)
 find_package(rpclib CONFIG REQUIRED)

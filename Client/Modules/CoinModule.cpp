@@ -3,14 +3,14 @@
 Modules CoinModule::activate(std::any& context)
 {
 	if (context.has_value()) {
-	    collection = std::any_cast<Collection>(context);
+	    collection = std::any_cast<CoreCollection>(context);
 		context.reset();
 	}
-	std::vector<CoinPtr> coins = controller->search(collection);
+	std::vector<CoreCoin> coins = controller->search(1, collection);
 	int i = 0;
-	for (const CoinPtr a : coins) {
-		std::cout << ++i << " " <<a->id<<"  " << a->name << " " << a->quantity << "  ";
-		if (a->IsFavorite) std::cout << "+";
+	for (const CoreCoin& coin : coins) {
+		std::cout << ++i << " " <<coin.id<<"  " << coin.name << " " << coin.quantity << "  ";
+		if (coin.IsFavorite) std::cout << "+";
 		else std::cout << "-";
 		puts("");
 	}
